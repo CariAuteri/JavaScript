@@ -1,3 +1,22 @@
+//Tarea 1
+numero1=parseInt(prompt('Ingrese un número'))
+numero2=parseInt(prompt('Ingrese OTRO número'))
+
+if (numero1>numero2) {
+    console.log(`${numero1} + ${numero2} = ${numero1+numero2}`)    
+}
+
+if (numero1<numero2) {
+    console.log(`${numero2} - ${numero1} = ${numero2-numero1}`)
+}
+
+if (numero1===numero2) {
+    console.log (`${numero1} * ${numero2} = ${numero1*numero2}`)
+    
+}
+
+
+
 //Tarea 2
 
 valor1=parseInt(prompt('Ingrese un número'))
