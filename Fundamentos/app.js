@@ -1,40 +1,73 @@
-//ARRAY O ARREGLOS
+// //CLASES
 
-//MÉTODOS
-let alumnos= ['Pablo; Fabrizio; Laura; Gabriela']
+// class Persona {
+//     constructor(nombre, apellido){
+//         this.nombre= nombre;
+//         this.apellido= apellido;
+//     }
+//     saludar() {
+//         console.log(`Hola, soy ${this.nombre} ${this.apellido}`);
+//     }
+// }
 
-//Acceder a un elemento dentro del arreglo
-alumnos [2]
+// let persona1= new Persona ("Fabrizio", "Tonin");
+// let persona2= new Persona ("Carlos", "Rodriguez");
 
-//Obtener el último elemento
-alumnos[alumnos.length -1]
 
-//Concatenar todos los elementos en un string
-alumnos.join()
+// //HERENCIA
 
-//Iterar o recorrer un arreglo
-for (let i=0; i<alumnos.length; i++){
-    console.log(`Hola, soy ${alumnos[i]}`)
+// class Profesor extends Persona {
+//     constructor (nombre, apellido, materia){
+//         super (nombre, apellido);
+//         this.materia = materia
+//     }
+
+//     presentacion(){
+//         console.log (`Buen día, juntos aprenderemos ${this.materia}`)
+//     }
+// }
+
+// let profe1 = new Profesor ("Fabrizio", "Tonin", "React Native")
+
+
+//Ejercicio Práctico: CUENTA BANCARIA
+//Escribe un programa que cree un objeto "cuenta" con las siguientes propiedades:
+//Una propiedad titular con el valor "Alex".
+//Una propiedad saldo, teniendo como valor inicial 0.
+//Un método ingresar() que permita añadir dinero a la cuenta, pasando la cantidad
+//Un método extraer() que permita retirar la cantidad pasada como parámetro.
+//Un método informar() que retorne la información del estado de la cuenta. 
+//Utiliza este objeto para mostrar la descripción, ingresar y extraer dinero y volver a mostrar la descripción del estado de la cuenta.
+
+class Cuenta{
+    constructor(titular, saldo=0){
+        this.titular= titular
+        this.saldo= saldo     
+    }
+
+    ingresar(valor){
+        if (valor <=0){
+            console.error ('Ingrese un valor mayor a 0')  
+            return  
+        }
+        this.saldo += valor
+        informar();
+    }
+
+    extraer(valor){
+        if (valor > this.saldo){
+            console.warn (`Solo puede extraer hasta $${this.saldo}`)
+            return            
+        }
+        this.saldo -= valor
+    }
+
+    informar(){
+        console.log ("===Detalle de la cuenta==="),
+        console.log (`Titular: ${this.titular}`),
+        console.log (`Saldo: $${this.saldo}`),
+        console.log ("===========================")
+    }
 }
 
-//Agregar elementos
-alumnos.push('Jorge')
-
-//Eliminar último elemento
-alumnos.pop ()
-
-//Añadir un elemento al principio
-alumnos.unshift('Walter')
-
-//Eliminar un elemento del principio 
-alumnos.shift()
-
-//Encontrar el índice de un elemento
-console.log(alumnos.indexOf ('Pablo'))
-
-//Encontrar un elemento 
-console.log(alumnos.includes ('Laura'))
-
-//Eliminar elementos mediante su posición
-let pos=1
-alumnos.splice(pos,2)
+let cta1= new Cuenta ('Alex')
